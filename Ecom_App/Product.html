@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+  <title>Products</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hero-section">
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link text-white  btn-outline-warning rounded" href="index.html">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white btn-outline-warning rounded" href="Product.html">Products</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white btn-outline-warning rounded" href="Cart.html">Cart (<span id="cart-count">0</span>)</a>
+  </li>
+</ul>
+</div>
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Our Products</h2>
+    
+    <div class="row">
+      <!-- Product 1 -->
+      <div class="col-md-3 mb-4">
+        <div class="card">
+          <img src="https://eezepc.com/wp-content/uploads/2022/01/Bloody-G220-EEZEPC.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5>Headphones</h5>
+            <p>$129.99</p>
+            <button onclick="addToCart(1, 'Headphones', 129.99)" class="btn btn-primary">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Product 2 -->
+      <div class="col-md-3 mb-4">
+        <div class="card">
+          <img src="https://isecurity.pk/wp-content/uploads/2023/09/pic-4.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5>Smart Watch</h5>
+            <p>$199.99</p>
+            <button onclick="addToCart(2, 'Smart Watch', 199.99)" class="btn btn-primary">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Product 3 -->
+      <div class="col-md-3 mb-4">
+        <div class="card">
+          <img src="https://cubeonline.pk/cdn/shop/files/earfun-air-mini-2-earbuds-in-pakistan-scaled_1024x1024.webp" class="card-img-top">
+          <div class="card-body">
+            <h5>Earbuds</h5>
+            <p>$79.99</p>
+            <button onclick="addToCart(3, 'Earbuds', 79.99)" class="btn btn-primary">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Product 4 -->
+      <div class="col-md-3 mb-4">
+        <div class="card">
+          <img src="https://www.laraibnow.com/images/product_gallery/1686066189_tronsmart-t7-mini-portable-bluetooth-speaker.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5>Speaker</h5>
+            <p>$89.99</p>
+            <button onclick="addToCart(4, 'Speaker', 89.99)" class="btn btn-primary">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+  <!-- Product 5 -->
+       <div class="col-md-3 mb-4">
+        <div class="card">
+          <img src="https://static.webx.pk/files/70503/Images/3-czone.com.pk-1540-255-081222084411-70503-1920654-261123113223988.jpg" class="card-img-top" >
+          <div class="card-body">
+            <h5>Mouse</h5>
+            <p>$10.99</p>
+            <button onclick="addToCart(5, 'Mouse', 10.99)" class="btn btn-primary">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product 6 -->
+       <div class="col-md-3 mb-4">
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiowDGxUGce13pGeG6UvauXnWQExTevbgsSA&s" class="card-img-top">
+          <div class="card-body">
+            <h5>Monitor</h5>
+            <p>$100.99</p>
+            <button onclick="addToCart(6, 'Monitor', 100.99)" class="btn btn-primary">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product 7 -->
+       <div class="col-md-3 mb-4">
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKYwE5hlG369aoqIOQ71EHViFS7fzsSZ57SA&s" class="card-img-top">
+          <div class="card-body">
+            <h5>Mouse Pads</h5>
+            <p>$49</p>
+            <button onclick="addToCart(7, 'Mouse Pads', 49)" class="btn btn-primary">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Show cart count
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('cart-count').textContent = cart.length;
+
+    // Add to cart function
+    function addToCart(id, name, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({id, name, price});
+      localStorage.setItem('cart', JSON.stringify(cart));
+      document.getElementById('cart-count').textContent = cart.length;
+      alert(`${name} added to cart!`);
+    }
+  </script>
+</body>
+</html>
